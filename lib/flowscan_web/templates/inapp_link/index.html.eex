@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+  body {
+    background: #0C0F18;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 32px;
+    text-align: center;
+  }
+  .button {
+    background: #3B82F6;
+    color: #ffffff;
+    padding: 16px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  </style>
+</head>
+
+<body>
+  <%= if @is_token_valid do %>
+    <div>
+      <p>⬇ Follow the link to reset your password</p>
+      <a href="flowscan://resetPassword/<%= @password_reset_token %>" class="button">Open Flowscan</a>
+    </div>
+  <% else %>
+    <div>
+      <p>Password reset link has expired or is invalid</p>
+    </div>
+  <% end %>
+</body>
+
+</html>
